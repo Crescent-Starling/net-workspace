@@ -24,7 +24,8 @@
 
 - 产品需求文档：[`docs/PRD.md`](docs/PRD.md)
 - 系统架构说明：[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- 数据库设计草案：[`docs/DATABASE_DESIGN.md`](docs/DATABASE_DESIGN.md)
+- 数据库设计文档：[`docs/DATABASE_DESIGN.md`](docs/DATABASE_DESIGN.md)
+- API 设计文档：[`docs/API_DESIGN.md`](docs/API_DESIGN.md)
 - 模板 DSL 设计：[`docs/TEMPLATE_DSL.md`](docs/TEMPLATE_DSL.md)
 - 智能站点接入工作流：[`docs/SITE_ONBOARDING_WORKFLOW.md`](docs/SITE_ONBOARDING_WORKFLOW.md)
 - 开发说明：[`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md)
@@ -39,8 +40,11 @@ net-workspace/
   .gitignore
   docs/
     PRD.md
-    LEGACY_REFERENCE.md
-    REPOSITORY_SETUP.md
+    ARCHITECTURE.md
+    DATABASE_DESIGN.md
+    API_DESIGN.md
+    TEMPLATE_DSL.md
+    SITE_ONBOARDING_WORKFLOW.md
   frontend/
   backend/
     app/
