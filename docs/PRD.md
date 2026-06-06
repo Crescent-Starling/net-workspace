@@ -1,60 +1,60 @@
 # PRD
 
-## Product Name
+## 产品名称
 
 NetWorkspace
 
-## Product Definition
+## 产品定义
 
-A platform that helps users onboard job-related websites, collect structured recruitment data, preserve historical snapshots, analyze trends, and build personal AI-assisted tools inside isolated workspaces.
+一个帮助用户接入招聘相关网站、采集结构化招聘数据、保留历史快照、分析趋势变化，并在隔离的个人工作区中搭建 AI 助手与个性化工具的平台。
 
-## Product Identity
+## 产品身份
 
-- Product: `NetWorkspace`
-- Crawling engine: `SpiderCore`
-- AI assistant: `Todd`
-- Core concept: each user receives a stable base system plus an isolated personal workspace that can evolve safely over time
+- 产品：`NetWorkspace`
+- 采集引擎：`SpiderCore`
+- AI 助手：`Todd`
+- 核心理念：每个用户获得一套稳定的基础系统，以及一个可以安全演化的独立个人工作区
 
-## Core Product Principles
+## 核心产品原则
 
-1. Stable core system, isolated personal customization.
-2. Minimal user input, strong system workflow.
-3. AI assists understanding, generation, repair, and explanation.
-4. Critical AI outputs must be previewable, auditable, and reversible.
-5. Raw data and structured data must both be preserved.
+1. 主系统保持稳定，个人定制必须隔离。
+2. 用户输入尽量少，系统工作流尽量强。
+3. AI 负责理解、生成、修复和解释。
+4. 关键 AI 结果必须可预览、可审计、可回滚。
+5. 原始数据和结构化数据都必须保留。
 
-## Core User Flow
+## 核心用户流程
 
-1. User submits a target website link.
-2. System identifies page/site type.
-3. System optionally gathers supplementary public signals from the web.
-4. AI generates a template draft.
-5. System runs a small validation sample.
-6. User reviews and confirms the result.
-7. Template is saved into the user's personal workspace.
-8. User creates crawl jobs and explores results through search, dashboards, and AI assistants.
+1. 用户提交目标网站链接。
+2. 系统识别页面类型和站点类型。
+3. 系统按需补充公开网络信息作为辅助依据。
+4. AI 生成模板草稿。
+5. 系统进行小样本验证。
+6. 用户预览并确认结果。
+7. 模板保存到用户个人工作区。
+8. 用户创建采集任务，并通过搜索、看板和 AI 助手使用数据。
 
-## V1 Scope
+## V1 范围
 
-- Frontend/backend separation
-- User accounts and workspace isolation
-- Official template system
-- Personal template system
-- AI-assisted site onboarding
-- Async crawl jobs
-- Search, filter, pagination, export
-- Analytics dashboards
-- Admin review for shared template proposals
-- Knowledge base and audit trail
+- 前后端分离
+- 用户账户与工作区隔离
+- 官方模板系统
+- 个人模板系统
+- AI 辅助站点接入
+- 异步采集任务
+- 搜索、筛选、分页、导出
+- 分析看板
+- 管理员审核共享模板提案
+- 知识库与审计链路
 
-## Non-Goals For V1
+## V1 暂不包含
 
-- arbitrary user code execution
-- fully automatic production template publishing
-- direct Agent modification of core production code
-- guaranteed one-click support for all websites
+- 任意用户代码直接执行
+- 模板全自动直接发布到生产环境
+- Agent 直接修改主系统核心代码
+- 承诺所有网站一键接入成功
 
-## Key Modules
+## 关键模块
 
 - Workspace
 - Template Center
@@ -66,24 +66,24 @@ A platform that helps users onboard job-related websites, collect structured rec
 - Admin & Review Center
 - Knowledge Base & Audit Layer
 
-## Product Theme
+## 产品气质
 
-NetWorkspace is not just a crawler website. It is a guided workspace for students, early-career job seekers, and people re-entering the market under AI-era change.
+NetWorkspace 不只是一个爬虫网站，而是一个面向学生、初入职场者，以及在 AI 时代重新寻找机会的人群的引导式工作台。
 
-The platform should feel:
+平台应具备以下感受：
 
-- approachable
-- growth-oriented
-- transparent
-- customizable without becoming chaotic
+- 易上手
+- 面向成长
+- 透明可解释
+- 可定制但不失控
 
-Todd, the AI assistant, should help users move from confusion to clarity while keeping evidence and system behavior explicit.
+AI 助手 Todd 应帮助用户从信息焦虑和不确定中走向清晰，同时明确展示依据、过程与系统行为。
 
-## Success Metrics
+## 成功指标
 
-- Time to onboard a new site
-- First-pass template validation success rate
-- Crawl task success rate
-- Structured field completeness
-- User workspace retention
-- Shared template adoption rate
+- 新网站接入耗时
+- 模板首次验证通过率
+- 采集任务成功率
+- 结构化字段完整率
+- 用户工作区留存率
+- 共享模板采用率

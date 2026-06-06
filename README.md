@@ -1,26 +1,35 @@
 # NetWorkspace
 
-AI-native recruitment intelligence workspace for site onboarding, crawling, historical data accumulation, analytics, and personal AI-assisted tooling.
+一个 AI 原生的招聘情报工作台，用于站点接入、数据采集、历史沉淀、分析展示，以及个人 AI 助手和工具搭建。
 
-## Positioning
+## 项目概述
 
-This project is a clean-slate rebuild of the legacy recruitment crawler project.
+本项目是对旧版招聘爬虫课程项目的全新重构。
 
-Goals:
+核心目标：
 
-- Keep the valuable core idea: turn short-lived job-site data into long-term analyzable historical assets.
-- Rebuild with a maintainable frontend/backend architecture.
-- Support official templates, personal templates, and AI-assisted site onboarding.
-- Isolate user customization in personal workspaces instead of changing the core system directly.
+- 保留旧项目最有价值的核心思路：把短时存在的招聘网站信息转化为可长期分析的历史数据资产。
+- 使用更易维护的前后端架构进行重建。
+- 支持官方模板、个人模板和 AI 辅助站点接入。
+- 将用户个性化扩展隔离在个人工作区内，而不是直接修改主系统。
 
-## Naming
+## 命名体系
 
-- Product: `NetWorkspace`
-- Crawling engine: `SpiderCore`
-- AI assistant: `Todd`
-- Repository: `net-workspace`
+- 产品名：`NetWorkspace`
+- 采集引擎：`SpiderCore`
+- AI 助手：`Todd`
+- 仓库名：`net-workspace`
 
-## Project Structure
+## 文档索引
+
+- 产品需求文档：[`docs/PRD.md`](docs/PRD.md)
+- 系统架构说明：[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- 数据库设计草案：[`docs/DATABASE_DESIGN.md`](docs/DATABASE_DESIGN.md)
+- 开发说明：[`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md)
+- 旧项目价值提炼：[`docs/LEGACY_REFERENCE.md`](docs/LEGACY_REFERENCE.md)
+- 仓库与协作说明：[`docs/REPOSITORY_SETUP.md`](docs/REPOSITORY_SETUP.md)
+
+## 项目结构
 
 ```text
 net-workspace/
@@ -38,34 +47,23 @@ net-workspace/
   archive/
 ```
 
-## Recommended Stack
+## 推荐技术栈
 
-- Frontend: React + TypeScript + Vite + Ant Design + ECharts
-- Backend: FastAPI + SQLAlchemy 2.0 + Pydantic + Alembic
-- Queue: Redis + Celery or RQ
-- Database: PostgreSQL preferred, MySQL 8 acceptable
-- Crawling: Playwright + Requests + BeautifulSoup/lxml
-- AI layer: LLM + multimodal page understanding + RAG knowledge base
+- 前端：React + TypeScript + Vite + Ant Design + ECharts
+- 后端：FastAPI + SQLAlchemy 2.0 + Pydantic + Alembic
+- 队列：Redis + Celery 或 RQ
+- 数据库：优先 PostgreSQL，也可使用 MySQL 8
+- 采集层：Playwright + Requests + BeautifulSoup/lxml
+- AI 层：LLM + 多模态页面理解 + RAG 知识库
 
-## Current Status
+## 开发语言约定
 
-This repository currently contains:
+- 产品文档、设计说明、需求讨论、提交说明默认使用中文。
+- 代码中的标识符、目录名、API 路径、数据库字段等技术标识保留英文。
+- 必要的专业术语可以中英并用，但以中文表达为主。
 
-- an initial project folder split from legacy files
-- an initial PRD aligned to the NetWorkspace concept
-- a legacy-value extraction note
-- GitHub setup instructions
+## 仓库约定
 
-## Immediate Next Steps
-
-1. Connect and push to the GitHub repository `Crescent-Starling/net-workspace`.
-2. Push this clean project skeleton.
-3. Add architecture design doc.
-4. Add database schema design doc.
-5. Scaffold frontend and backend apps.
-
-## Legacy Project Handling
-
-Do not continue development in the old directories directly.
-
-Legacy folders remain outside this new project root and should only be used as reference material until selected files are deliberately migrated.
+- 不在旧目录中继续直接开发。
+- 旧项目目录保留在新仓库外部，仅作为参考材料使用。
+- 只有经过明确筛选的内容，才允许迁移进入新系统。

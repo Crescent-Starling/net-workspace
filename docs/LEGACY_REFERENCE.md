@@ -1,89 +1,89 @@
-# Legacy Reference Extraction
+# 旧项目价值提炼
 
-This file extracts only the reusable value from the legacy project.
+本文档只提炼旧项目中值得保留和迁移的价值，不直接继承其实现方式。
 
-## Legacy Sources Reviewed
+## 参考过的旧项目来源
 
-- legacy crawler application directory (`网络数据爬取`)
-- legacy v3 crawler application directory (`网络数据爬取_v3`)
-- related design docs, ER diagrams, flow charts, and requirement notes
+- 旧版爬虫应用目录：`网络数据爬取`
+- 旧版 v3 应用目录：`网络数据爬取_v3`
+- 相关设计文档、ER 图、流程图和需求笔记
 
-## Valuable Ideas Worth Keeping
+## 值得保留的核心价值
 
-### 1. Historical data asset mindset
+### 1. 历史数据资产意识
 
-The strongest legacy idea is not the crawler itself, but the decision to store job data in a database for long-term retrieval and evolution analysis.
+旧项目最有价值的地方不是“爬虫”本身，而是意识到应该把招聘数据存入数据库，用于长期检索和演化分析。
 
-This should remain a first-class principle in the new system.
+这应该继续作为新系统的一等原则。
 
-### 2. Business loop is already clear
+### 2. 业务闭环已经清晰
 
-The legacy project already identified the useful loop:
+旧项目已经较清楚地识别出了有价值的业务闭环：
 
-- create crawl task
-- acquire website data
-- store structured records
-- search and filter
-- export
-- analyze trends
+- 创建采集任务
+- 获取网站数据
+- 存储结构化记录
+- 搜索与筛选
+- 数据导出
+- 趋势分析
 
-This loop should be preserved, but rebuilt with cleaner boundaries.
+这个闭环应该被保留，但要用更清晰的系统边界重新实现。
 
-### 3. Multi-role system is necessary
+### 3. 多角色体系是必要的
 
-The distinction between normal users and admins is valid and should remain.
+普通用户与管理员的区分是合理的，应该继续保留。
 
-In the new system, this evolves into:
+在新系统中，这个结构将进一步演化为：
 
-- core system permissions
-- workspace permissions
-- proposal/review permissions
+- 主系统权限
+- 工作区权限
+- 提案与审核权限
 
-### 4. Search and analytics are core, not accessory
+### 4. 搜索与分析是核心能力，不是附属功能
 
-The old system correctly treated search, export, and analytics as part of the main product rather than add-ons.
+旧系统正确地把搜索、导出和分析视为主产品能力，而不是事后补充的附属模块。
 
-### 5. Template extensibility is the real future
+### 5. 模板扩展能力才是真正的未来方向
 
-The old project already showed that hardcoded support for only a few websites will hit a ceiling quickly.
+旧项目已经证明，只靠硬编码支持少数网站很快就会遇到上限。
 
-The new system should turn this into a formal template and onboarding architecture.
+新系统应该把这一点正式化为模板体系和站点接入架构。
 
-## Legacy Problems To Avoid Repeating
+## 需要避免重复的问题
 
-### 1. Single-file backend
+### 1. 单文件后端
 
-Do not rebuild another all-in-one application file.
+不要再构建一个把所有逻辑塞在同一个应用文件中的系统。
 
-### 2. Web and crawling tightly coupled
+### 2. Web 层与采集层强耦合
 
-Crawl execution must be async and independent from the request lifecycle.
+采集任务必须异步执行，并从请求生命周期中解耦。
 
-### 3. Old and new versions mixed in one root
+### 3. 新旧版本混在同一个根目录中
 
-New work must stay in this clean project root only.
+新的开发内容必须严格留在新的项目根目录中。
 
-### 4. Weak version discipline
+### 4. 版本纪律薄弱
 
-Templates, workflows, schema changes, and generated artifacts must all be versioned.
+模板、工作流、数据结构变化和生成物都必须版本化。
 
-### 5. Unstructured analysis fields
+### 5. 分析字段不够结构化
 
-Salary, publish date, experience, and normalized tags should be stored in analysis-friendly fields.
+薪资、发布日期、经验、归一化标签等信息都应以更适合分析的结构化字段存储。
 
-## Legacy Materials Worth Consulting Later
+## 后续值得继续参考的材料
 
-- old requirement notes for real user pain points
-- old database design for entity boundaries
-- old crawler code for site-specific extraction logic
-- old templates for useful interaction ideas
+- 旧需求笔记：真实用户痛点
+- 旧数据库设计：实体边界参考
+- 旧爬虫代码：站点提取逻辑参考
+- 旧模板页面：交互思路参考
 
-## Migration Rule
+## 迁移原则
 
-Nothing should be copied into the new system unless it meets one of these conditions:
+任何内容都不应直接复制进新系统，除非它满足以下条件之一：
 
-1. It contains reusable domain knowledge.
-2. It contains reusable extraction logic.
-3. It is needed as an archived reference.
+1. 包含可复用的领域知识。
+2. 包含可复用的提取逻辑。
+3. 必须作为归档参考保留。
 
-Otherwise, rebuild cleanly.
+否则应当选择干净重建，而不是延续旧实现。
