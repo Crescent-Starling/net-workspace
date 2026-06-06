@@ -4,8 +4,8 @@ This file extracts only the reusable value from the legacy project.
 
 ## Legacy Sources Reviewed
 
-- `/Users/crescent/Desktop/专业课资料/【编程】数据库及实现/Project/网络数据爬取`
-- `/Users/crescent/Desktop/专业课资料/【编程】数据库及实现/Project/网络数据爬取_v3`
+- legacy crawler application directory (`网络数据爬取`)
+- legacy v3 crawler application directory (`网络数据爬取_v3`)
 - related design docs, ER diagrams, flow charts, and requirement notes
 
 ## Valuable Ideas Worth Keeping
