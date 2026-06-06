@@ -25,6 +25,8 @@
 - 产品需求文档：[`docs/PRD.md`](docs/PRD.md)
 - 系统架构说明：[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - 数据库设计草案：[`docs/DATABASE_DESIGN.md`](docs/DATABASE_DESIGN.md)
+- 模板 DSL 设计：[`docs/TEMPLATE_DSL.md`](docs/TEMPLATE_DSL.md)
+- 智能站点接入工作流：[`docs/SITE_ONBOARDING_WORKFLOW.md`](docs/SITE_ONBOARDING_WORKFLOW.md)
 - 开发说明：[`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md)
 - 旧项目价值提炼：[`docs/LEGACY_REFERENCE.md`](docs/LEGACY_REFERENCE.md)
 - 仓库与协作说明：[`docs/REPOSITORY_SETUP.md`](docs/REPOSITORY_SETUP.md)
