@@ -1,0 +1,84 @@
+# 示例 DSL 模板 — 用于测试爬虫引擎
+# 爬取一个简单的公开页面来验证整个流程
+
+meta:
+  template_name: "example_public_jobs"
+  display_name: "示例公开岗位模板"
+  scope: "personal"
+  version: "1.0.0"
+  language: "zh-CN"
+  description: "用于测试 DSL 执行器的示例模板，抓取公开岗位数据"
+
+source:
+  source_name: "示例站"
+  domain: "example.com"
+  content_type: "job"
+
+entry:
+  page_type: "search_list"
+  start_urls:
+    - "https://example.com/jobs?keyword={{ keyword }}&page={{ page }}"
+  parameter_schema:
+    keyword:
+      type: "string"
+      required: true
+    page:
+      type: "integer"
+      required: false
+
+strategy:
+  fetch_mode: "html_list_detail"
+  renderer: "request"
+
+pagination:
+  type: "query_param"
+  param_name: "page"
+  start: 1
+  max_pages: 3
+
+list:
+  item_selector: ".job-card"
+  fields:
+    title:
+      selector: ".job-title"
+      extract: "text"
+    company:
+      selector: ".company-name"
+      extract: "text"
+    salary:
+      selector: ".salary"
+      extract: "text"
+    detail_url:
+      selector: "a.job-link"
+      extract: "attr"
+      attr_name: "href"
+
+detail:
+  enabled: false
+
+field_mapping:
+  title: "job_title"
+  company: "company_name"
+  salary: "salary_text"
+  detail_url: "job_url"
+
+normalization:
+  salary_text:
+    source_field: "salary_text"
+    transforms: ["trim"]
+
+dedup:
+  primary_keys:
+    - "job_url"
+  fallback_keys:
+    - "job_title"
+    - "company_name"
+
+validation:
+  required_fields:
+    - "job_title"
+
+runtime:
+  timeout_seconds: 10
+  request_interval_ms: 1000
+  retry_times: 2

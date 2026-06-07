@@ -34,3 +34,13 @@ artifacts/
 # Local databases
 *.sqlite3
 *.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+# Python build artifacts
+*.egg-info/
+*.egg
+build/
+dist/
+__pycache__/

@@ -1,0 +1,75 @@
+meta:
+  name: "模拟招聘列表-测试用"
+  version: "1.0"
+  author: "human"
+  description: "用于验证 DSL 执行器的测试模板，字段置信度：全部=high"
+  scope: "personal"
+
+entry:
+  start_urls:
+    - "file:///Users/crescent/Desktop/专业课资料/【编程】数据库及实现/Project/net-workspace/frontend/test_job_page.html"
+  parameter_schema: {}
+
+strategy:
+  fetch_mode: "html_list_detail"
+  concurrent: 1
+
+pagination:
+  type: "none"
+  max_pages: 1
+
+list:
+  item_selector: "div.job-card"
+  fields:
+    job_title:
+      selector: "h3.title"
+      extract: "text"
+    company_name:
+      selector: "span.company"
+      extract: "text"
+    city:
+      selector: "span.city"
+      extract: "text"
+    salary_text:
+      selector: "span.salary"
+      extract: "text"
+    job_url:
+      selector: "a.link"
+      extract: "attr"
+      attr_name: "href"
+
+field_mapping:
+  job_title: "job_title"
+  company_name: "company_name"
+  city: "city"
+  salary_text: "salary_text"
+  job_url: "job_url"
+
+normalization:
+  city:
+    source_field: "city"
+    transforms:
+      - "trim"
+      - "normalize_city"
+  salary_text:
+    source_field: "salary_text"
+    transforms:
+      - "trim"
+
+dedup:
+  primary_keys:
+    - "job_url"
+  fallback_keys:
+    - "job_title"
+    - "company_name"
+    - "city"
+
+validation:
+  required_fields:
+    - "job_title"
+    - "company_name"
+
+runtime:
+  timeout_seconds: 30
+  request_interval_ms: 500
+  max_retries: 2

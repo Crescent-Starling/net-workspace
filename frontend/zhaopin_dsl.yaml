@@ -1,0 +1,82 @@
+meta:
+  name: "智联招聘-搜索列表"
+  version: "1.0"
+  author: "human"
+  description: "智联招聘岗位搜索结果列表页，字段置信度：job_title=high, company_name=high, city=medium, salary_text=high"
+  scope: "personal"
+
+entry:
+  start_urls:
+    - "https://sou.zhaopin.com/?jl=530&kw={keyword}&p={page}"
+  parameter_schema:
+    keyword:
+      type: "str"
+      default: "数据分析"
+    page:
+      type: "int"
+      default: 1
+
+strategy:
+  fetch_mode: "html_list_detail"
+  concurrent: 1
+
+pagination:
+  type: "query_param"
+  param_name: "p"
+  max_pages: 3
+
+list:
+  item_selector: "div.joblist-item"
+  fields:
+    job_title:
+      selector: "span.joblist-item-title"
+      extract: "text"
+    company_name:
+      selector: "span.joblist-item-company"
+      extract: "text"
+    city:
+      selector: "span.joblist-item-address"
+      extract: "text"
+    salary_text:
+      selector: "span.joblist-item-salary"
+      extract: "text"
+    job_url:
+      selector: "a.joblist-item-link"
+      extract: "attr"
+      attr_name: "href"
+
+field_mapping:
+  job_title: "job_title"
+  company_name: "company_name"
+  city: "city"
+  salary_text: "salary_text"
+  job_url: "job_url"
+
+normalization:
+  city:
+    source_field: "city"
+    transforms:
+      - "trim"
+      - "normalize_city"
+  salary_text:
+    source_field: "salary_text"
+    transforms:
+      - "trim"
+
+dedup:
+  primary_keys:
+    - "job_url"
+  fallback_keys:
+    - "job_title"
+    - "company_name"
+    - "city"
+
+validation:
+  required_fields:
+    - "job_title"
+    - "company_name"
+
+runtime:
+  timeout_seconds: 30
+  request_interval_ms: 2000
+  max_retries: 2
